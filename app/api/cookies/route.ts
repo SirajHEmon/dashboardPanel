@@ -72,7 +72,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    await deleteCookies(email, domain);
+    await deleteCookies(email, domain || undefined);
     
     return NextResponse.json({
       success: true,
