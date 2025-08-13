@@ -1,0 +1,22 @@
+@'
+# env
+.env
+.env.*
+
+# dependencies
+node_modules/
+
+# builds
+.next/
+dist/
+out/
+
+# vercel
+.vercel/
+
+# tests/coverage
+coverage/
+
+# logs
+*.log
+'@ | Set-Content -NoNewline .gitignore
