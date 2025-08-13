@@ -8,10 +8,13 @@ export interface User {
   id: number;
   username: string;
   email: string;
+  password_hash: string;
   subscription_status: string;
   subscription_expires: Date | null;
   wordpress_user_id: number | null;
   api_key: string | null;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 export async function hashPassword(password: string): Promise<string> {
