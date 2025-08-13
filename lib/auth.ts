@@ -46,7 +46,7 @@ export async function authenticateUser(username: string, password: string): Prom
     
     if (users.length === 0) return null;
     
-    const user = users[0];
+    const user = users[0] as User;
     const isValid = await verifyPassword(password, user.password_hash);
     
     if (!isValid) return null;
@@ -69,7 +69,7 @@ export async function createUser(username: string, email: string, password: stri
       RETURNING *
     `;
     
-    return users[0] || null;
+    return (users[0] as User) || null;
   } catch (error) {
     console.error('User creation error:', error);
     return null;
@@ -82,7 +82,7 @@ export async function getUserById(userId: number): Promise<User | null> {
       SELECT * FROM users WHERE id = ${userId}
     `;
     
-    return users[0] || null;
+    return (users[0] as User) || null;
   } catch (error) {
     console.error('Get user error:', error);
     return null;
